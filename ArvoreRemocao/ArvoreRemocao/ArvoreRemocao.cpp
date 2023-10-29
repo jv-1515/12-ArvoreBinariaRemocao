@@ -267,11 +267,9 @@ void removerElementoArvore(NO* no, int valor) {
 	if (atual->esq == NULL) {
 		if (pai == NULL) {
 			raiz = atual->dir;
-		}
-		else if (pai->esq == atual) {
-			pai->esq = atual;
-		}
-		else {
+		} else if (pai->esq == atual) {
+			pai->esq = atual->dir;
+		} else {
 			pai->dir = atual->dir;
 		}
 		free(atual);
@@ -282,11 +280,9 @@ void removerElementoArvore(NO* no, int valor) {
 	else if (atual->dir == NULL) {
 		if (pai == NULL) {
 			raiz = atual->esq;
-		}
-		else if (pai->esq == atual) {
+		} else if (pai->esq == atual) {
 			pai->esq = atual->esq;
-		}
-		else {
+		} else {
 			pai->dir = atual->esq;
 		}
 		free(atual);
